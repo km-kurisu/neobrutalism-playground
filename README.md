@@ -66,7 +66,7 @@ Side panels collapse on narrow screens (<900px) with toggle buttons in the heade
 ## Getting Started
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/km-kurisu/neobrutalism-playground.git
 cd neobrutalism-playground
 npm install
 npm run dev
