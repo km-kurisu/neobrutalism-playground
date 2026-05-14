@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --nb-border: 3px solid #000;
+  --nb-border-width: 3px;
+  --nb-border-color: #000;
+  --nb-shadow: 5px 5px 0 0 #000;
+  --nb-shadow-sm: 3px 3px 0 0 #000;
+  --nb-shadow-lg: 8px 8px 0 0 #000;
+  --nb-radius: 0px;
+  --nb-bg: #FFFDF5;
+  --nb-surface: #FFFFFF;
+  --nb-text: #000000;
+  --nb-primary: #FFD23F;
+  --nb-secondary: #FF6B6B;
+  --nb-danger: #FF4444;
+  --nb-font-display: 'Syne', sans-serif;
+  --nb-font-heading: 'Space Grotesk', sans-serif;
+  --nb-font-body: 'Inter', sans-serif;
+  --nb-font-mono: 'Space Mono', monospace;
+  --nb-heading-weight: 700;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-nb-bg: var(--nb-bg);
+  --color-nb-surface: var(--nb-surface);
+  --color-nb-text: var(--nb-text);
+  --color-nb-primary: var(--nb-primary);
+  --color-nb-secondary: var(--nb-secondary);
+  --color-nb-danger: var(--nb-danger);
+  --color-nb-border: var(--nb-border-color);
+  --font-display: var(--nb-font-display);
+  --font-heading: var(--nb-font-heading);
+  --font-body: var(--nb-font-body);
+  --font-mono: var(--nb-font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--nb-bg);
+  color: var(--nb-text);
+  font-family: var(--nb-font-body);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nb-border-color);
+  border: 2px solid var(--nb-bg);
 }
