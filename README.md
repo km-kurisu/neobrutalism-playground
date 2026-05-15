@@ -1,116 +1,91 @@
-# NB/PLAY — Neo Brutalism Theme Playground
+# Neobrutalism UI Kit ⚡️
 
-An interactive tool for exploring, customizing, and generating neo brutalism design tokens in real-time. Tweak borders, shadows, colors, and fonts while previewing live components. Export the result as CSS custom properties, Tailwind config, or individual component CSS.
+A premium, high-contrast neobrutalist component library built with **React**, **TypeScript**, and **Tailwind CSS**. Designed for builders who want to stand out with bold strokes, hard shadows, and vibrant energy.
 
-## Built With
+![Neobrutalism UI Banner](https://raw.githubusercontent.com/your-username/neobrutalism-ui-kit/main/public/banner.png)
 
-- **Next.js 16** — React framework
-- **Tailwind CSS v4** — utility-first CSS
-- **Zustand** — state management
-- **Google Fonts** — 10 neo brutalism typefaces via `next/font`
+## ✨ Features
 
-## Features
+- 🎨 **Bold Aesthetics**: Signature thick borders and offset shadows.
+- 🧩 **Shadcn Compatible**: Built on top of Shadcn patterns for familiar implementation.
+- ⌨️ **Accessible**: Fully accessible primitives powered by Base UI.
+- 🛠️ **Fully Customizable**: Controlled via standard CSS variables.
+- 📦 **Lightweight**: Zero-config bundling with full ESM/CJS support.
 
-### Live Theme Editor
-Adjust every neo brutalism design token visually:
+## 🚀 Installation
 
-| Category | Controls |
-|----------|----------|
-| **Border** | Width (0–8px), Radius (0–24px) |
-| **Shadow** | Offset X/Y (0–20px), Blur (0–12px) |
-| **Colors** | Background, Surface, Text, Border, Shadow, Primary, Secondary, Danger — each with color picker + hex input |
-| **Fonts** | Choose from 10 typefaces (Syne, Space Grotesk, Inter, Space Mono, Bebas Neue, Archivo Black, Plus Jakarta Sans, DM Sans, Outfit, JetBrains Mono) for display, heading, body, and monospace roles; heading weight slider (400–900) |
-
-### Live Component Previews
-Six component types update instantly as you tweak tokens:
-
-- **Button** — default, primary, inverted, ghost (with hover/active states)
-- **Card** — header, body, footer with hover lift
-- **Input** — text, email, select, textarea (with focus states)
-- **Badge** — default, primary, success, error, warning
-- **Toggle** — checked/unchecked with keyboard focus
-- **Alert** — success, error, info, warning
-
-Filter by component type or view all at once.
-
-### Code Export
-Switch between three output modes:
-
-- **CSS Custom Properties** — full `:root` token block
-- **Tailwind Config** — theme extension config
-- **Component CSS** — individual CSS for button, card, or input
-
-All with one-click copy.
-
-### Contrast Checker
-Live WCAG contrast ratios for:
-- Text on background
-- Text on surface
-- Text on primary color
-
-Shows pass/fail for AA (4.5:1), AAA (7:1), and AA Large (3:1).
-
-### Theme Presets
-Six one-click presets to get started:
-
-- **Classic** — canonical neo brutalism look
-- **Vibrant** — bold pop-art energy
-- **Soft** — muted, approachable
-- **Dark** — high contrast dark mode
-- **Minimal** — clean black and white
-- **Cyber** — neon cyber-brutalism
-
-### Responsive Layout
-Side panels collapse on narrow screens (<900px) with toggle buttons in the header.
-
-## Getting Started
+Install the package via your preferred package manager:
 
 ```bash
-git clone https://github.com/km-kurisu/neobrutalism-playground.git
-cd neobrutalism-playground
-npm install
-npm run dev
+npm install neobrutalism-ui-kit
+# or
+yarn add neobrutalism-ui-kit
+# or
+pnpm add neobrutalism-ui-kit
 ```
 
-Open [http://localhost:3333](http://localhost:3333) in your browser.
+## 🛠️ Setup
 
-## Project Structure
+Import the core neobrutalist styles in your main entry file (e.g., `layout.tsx`, `App.tsx`, or `main.ts`):
 
-```
-src/
-├── app/
-│   ├── layout.tsx              # Root layout with Google Fonts
-│   ├── page.tsx                # Server entry point
-│   ├── globals.css             # CSS custom properties, Tailwind, base styles
-│   └── components/
-│       ├── Playground.tsx      # Three-panel layout with responsive toggles
-│       ├── ThemeSync.tsx       # Syncs Zustand store → CSS custom properties
-│       ├── TokenPanel.tsx      # Left panel: presets, sliders, color pickers, fonts
-│       ├── ComponentGrid.tsx   # Center panel: live component previews with tabs
-│       ├── CodePanel.tsx       # Right panel: code output + contrast checker
-│       └── preview/
-│           ├── ButtonPreview.tsx
-│           ├── CardPreview.tsx
-│           ├── InputPreview.tsx
-│           ├── BadgePreview.tsx
-│           ├── TogglePreview.tsx
-│           └── AlertPreview.tsx
-└── lib/
-    ├── store.ts                # Zustand store (19 theme tokens)
-    ├── presets.ts              # 6 theme presets
-    └── utils.ts                # Contrast calculator, code generators, HSL color utilities
+```tsx
+import 'neobrutalism-ui-kit/styles.css';
 ```
 
-## Contributing
+## 📖 Usage
 
-Contributions are welcome! Here's how to get involved:
+```tsx
+import { Button, Card, Badge } from 'neobrutalism-ui-kit';
 
-1. **Fork** the repository
-2. **Create a feature branch** (`git checkout -b feature/my-feature`)
-3. **Commit your changes** (`git commit -m 'Add my feature'`)
-4. **Push to the branch** (`git push origin feature/my-feature`)
-5. **Open a Pull Request**
+export default function App() {
+  return (
+    <Card className="p-6">
+      <h2 className="font-heading text-2xl font-black mb-4">Hello World</h2>
+      <p className="font-body mb-6">Neobrutalism is about being raw and bold.</p>
+      
+      <div className="flex gap-4">
+        <Button variant="primary">Get Started</Button>
+        <Badge variant="secondary">v1.0.0</Badge>
+      </div>
+    </Card>
+  );
+}
+```
 
-Please make sure your code builds cleanly (`npm run build`) before submitting. For major changes, open an issue first to discuss what you'd like to change.
+## 🎨 Customization
 
+You can easily override the theme by redefining the CSS variables in your global stylesheet:
 
+```css
+:root {
+  --nb-primary: #FFD23F;   /* Change your primary color */
+  --nb-radius: 8px;        /* Soften the corners */
+  --nb-border-width: 4px;  /* Make the lines even thicker */
+  --nb-shadow: 6px 6px 0px #000;
+}
+```
+
+## 📦 Available Components
+
+- **Accordion**: `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent`
+- **Alert**: `Alert`, `AlertTitle`, `AlertDescription` (Variants: `default`, `destructive`, `success`, `warning`)
+- **Avatar**: `Avatar`, `AvatarImage`, `AvatarFallback`
+- **Badge**: `Badge` (Variants: `default`, `secondary`, `destructive`, `outline`)
+- **Button**: `Button` (Variants: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`)
+- **Card**: `Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`
+- **Input**: `Input` (Neobrutalist text input)
+- **Tooltip**: `Tooltip`, `TooltipTrigger`, `TooltipContent`, `TooltipProvider`
+
+## 🛠️ Utilities
+
+We also export the `cn` utility (a combination of `clsx` and `tailwind-merge`) to help you merge your own classes with the neobrutalist ones:
+
+```tsx
+import { cn } from 'neobrutalism-ui-kit';
+
+const myClass = cn("border-nb", "custom-class");
+```
+
+## 📜 License
+
+MIT © [km-kurisu]

@@ -121,7 +121,7 @@ export default function CodePanel() {
         {tab === 'components' && (
           <div>
             <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-              {['button', 'card', 'input'].map((c) => (
+              {['button', 'card', 'input', 'alert', 'badge', 'toggle', 'accordion', 'avatar', 'tooltip'].map((c) => (
                 <button
                   key={c}
                   onClick={() => setCompTab(c)}

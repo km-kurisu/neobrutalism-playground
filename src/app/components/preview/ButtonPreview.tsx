@@ -1,51 +1,20 @@
 'use client'
 
+import { Button } from "@/components/ui/button"
+import { useThemeStore } from "@/lib/store"
+
 export default function ButtonPreview() {
+  const shake = useThemeStore((s) => s.tokens.shakeEnabled)
+  const shakeClass = shake ? 'animate-nb-shake' : ''
+
   return (
-    <div className="flex flex-wrap gap-3 items-center">
-      <button className="btn-nb">Default</button>
-      <button className="btn-nb btn-nb-primary">Primary</button>
-      <button className="btn-nb btn-nb-inverted">Inverted</button>
-      <button className="btn-nb btn-nb-ghost">Ghost</button>
-      <style>{`
-        .btn-nb {
-          border: var(--nb-border);
-          border-radius: var(--nb-radius);
-          background: transparent;
-          color: var(--nb-text);
-          box-shadow: var(--nb-shadow);
-          padding: 10px 20px;
-          font-weight: var(--nb-heading-weight);
-          font-family: var(--nb-font-body);
-          cursor: pointer;
-          transition: all 0.1s ease;
-        }
-        .btn-nb:hover {
-          transform: translate(-2px, -2px);
-          box-shadow: var(--nb-shadow-lg);
-        }
-        .btn-nb:active {
-          transform: translate(var(--nb-border-width), var(--nb-border-width));
-          box-shadow: none;
-        }
-        .btn-nb-primary {
-          background: var(--nb-primary);
-          color: var(--nb-text);
-        }
-        .btn-nb-inverted {
-          background: var(--nb-text);
-          color: var(--nb-bg);
-          border-color: var(--nb-text);
-        }
-        .btn-nb-ghost {
-          border-color: transparent;
-          box-shadow: none;
-        }
-        .btn-nb-ghost:hover {
-          background: var(--nb-primary);
-          box-shadow: var(--nb-shadow);
-        }
-      `}</style>
+    <div className="flex flex-wrap gap-4 items-center p-4">
+      <Button className={shakeClass}>Default</Button>
+      <Button variant="secondary" className={shakeClass}>Secondary</Button>
+      <Button variant="outline" className={shakeClass}>Outline</Button>
+      <Button variant="destructive" className={shakeClass}>Destructive</Button>
+      <Button variant="ghost" className={shakeClass}>Ghost</Button>
+      <Button variant="link" className={shakeClass}>Link</Button>
     </div>
   )
 }

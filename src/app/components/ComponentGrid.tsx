@@ -7,6 +7,12 @@ import InputPreview from './preview/InputPreview'
 import BadgePreview from './preview/BadgePreview'
 import TogglePreview from './preview/TogglePreview'
 import AlertPreview from './preview/AlertPreview'
+import AccordionPreview from './preview/AccordionPreview'
+import AvatarPreview from './preview/AvatarPreview'
+import TooltipPreview from './preview/TooltipPreview'
+import HeroPreview from './preview/HeroPreview'
+import PricingPreview from './preview/PricingPreview'
+import ContactPreview from './preview/ContactPreview'
 
 const tabs = [
   { id: 'all', label: 'All' },
@@ -16,6 +22,10 @@ const tabs = [
   { id: 'badge', label: 'Badge' },
   { id: 'toggle', label: 'Toggle' },
   { id: 'alert', label: 'Alert' },
+  { id: 'accordion', label: 'Accordion' },
+  { id: 'avatar', label: 'Avatar' },
+  { id: 'tooltip', label: 'Tooltip' },
+  { id: 'layouts', label: 'Layouts' },
 ] as const
 
 type TabId = typeof tabs[number]['id']
@@ -76,6 +86,27 @@ export default function ComponentGrid() {
           <PreviewSection label="Alert" show={activeTab === 'all' || activeTab === 'alert'}>
             <AlertPreview />
           </PreviewSection>
+          <PreviewSection label="Accordion" show={activeTab === 'all' || activeTab === 'accordion'}>
+            <AccordionPreview />
+          </PreviewSection>
+          <PreviewSection label="Avatar" show={activeTab === 'all' || activeTab === 'avatar'}>
+            <AvatarPreview />
+          </PreviewSection>
+          <PreviewSection label="Tooltip" show={activeTab === 'all' || activeTab === 'tooltip'}>
+            <TooltipPreview />
+          </PreviewSection>
+
+          <div style={{ margin: '3rem 0 1.5rem', borderTop: 'var(--nb-border)', paddingTop: '2rem' }}>
+            <PreviewSection label="Hero Layout" show={activeTab === 'all' || activeTab === 'layouts'}>
+              <HeroPreview />
+            </PreviewSection>
+            <PreviewSection label="Pricing Layout" show={activeTab === 'all' || activeTab === 'layouts'}>
+              <PricingPreview />
+            </PreviewSection>
+            <PreviewSection label="Contact Layout" show={activeTab === 'all' || activeTab === 'layouts'}>
+              <ContactPreview />
+            </PreviewSection>
+          </div>
         </div>
       </div>
     </div>

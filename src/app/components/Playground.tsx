@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import TokenPanel from './TokenPanel'
 import ComponentGrid from './ComponentGrid'
 import CodePanel from './CodePanel'
@@ -54,6 +55,14 @@ export default function Playground() {
         </h1>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+          <Link href="/docs">
+            <HeaderBtn
+              label="Docs"
+              active={false}
+              onClick={() => {}}
+              compact={isMobile}
+            />
+          </Link>
           <HeaderBtn
             label={isMobile ? '▣' : effectiveTokensOpen ? 'Hide Theme' : 'Theme'}
             active={effectiveTokensOpen}

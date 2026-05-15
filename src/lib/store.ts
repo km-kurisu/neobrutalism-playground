@@ -19,6 +19,12 @@ export interface ThemeTokens {
   fontBody: string
   fontMono: string
   headingWeight: number
+  // New tokens
+  hoverOffset: number
+  activeOffset: number
+  shakeEnabled: boolean
+  grainOverlay: boolean
+  isDarkMode: boolean
 }
 
 interface ThemeStore {
@@ -48,6 +54,11 @@ const defaultTokens: ThemeTokens = {
   fontBody: 'Inter',
   fontMono: 'Space Mono',
   headingWeight: 700,
+  hoverOffset: 2,
+  activeOffset: 4,
+  shakeEnabled: false,
+  grainOverlay: false,
+  isDarkMode: false,
 }
 
 export const useThemeStore = create<ThemeStore>((set) => ({

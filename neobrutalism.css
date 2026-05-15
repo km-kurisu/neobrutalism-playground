@@ -1,0 +1,82 @@
+/* Neobrutalism UI Kit - Base Styles */
+
+:root {
+  --nb-border: 3px solid #000;
+  --nb-border-width: 3px;
+  --nb-border-color: #000;
+  --nb-shadow: 5px 5px 0 0 #000;
+  --nb-shadow-sm: 3px 3px 0 0 #000;
+  --nb-shadow-lg: 8px 8px 0 0 #000;
+  --nb-radius: 0px;
+  --nb-bg: #FFFDF5;
+  --nb-surface: #FFFFFF;
+  --nb-text: #000000;
+  --nb-primary: #FFD23F;
+  --nb-secondary: #FF6B6B;
+  --nb-danger: #FF4444;
+  --nb-font-display: 'Syne', sans-serif;
+  --nb-font-heading: 'Space Grotesk', sans-serif;
+  --nb-font-body: 'Inter', sans-serif;
+  --nb-font-mono: 'Space Mono', monospace;
+  --nb-heading-weight: 700;
+  --nb-hover-offset: -2px;
+  --nb-active-offset: 4px;
+
+  /* Shadcn Mapping */
+  --background: var(--nb-bg);
+  --foreground: var(--nb-text);
+  --card: var(--nb-surface);
+  --card-foreground: var(--nb-text);
+  --popover: var(--nb-surface);
+  --popover-foreground: var(--nb-text);
+  --primary: var(--nb-primary);
+  --primary-foreground: var(--nb-text);
+  --secondary: var(--nb-secondary);
+  --secondary-foreground: var(--nb-text);
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: var(--nb-primary);
+  --accent-foreground: var(--nb-text);
+  --destructive: var(--nb-danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--nb-border-color);
+  --input: var(--nb-border-color);
+  --ring: var(--nb-primary);
+  --radius: var(--nb-radius);
+}
+
+.border-nb {
+  border: var(--nb-border-width) solid var(--nb-border-color) !important;
+}
+
+.shadow-nb {
+  box-shadow: var(--nb-shadow) !important;
+}
+
+.shadow-nb-sm {
+  box-shadow: var(--nb-shadow-sm) !important;
+}
+
+.shadow-nb-lg {
+  box-shadow: var(--nb-shadow-lg) !important;
+}
+
+/* Base animations */
+@keyframes nb-shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.animate-nb-shake:hover {
+  animation: nb-shake 0.3s;
+  animation-iteration-count: infinite;
+}

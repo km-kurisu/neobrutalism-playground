@@ -1,49 +1,46 @@
 'use client'
 
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { useThemeStore } from "@/lib/store"
+import { IconInfo, IconAlertTriangle, IconCheck, IconX } from "../Icons"
+
 export default function AlertPreview() {
+  const shake = useThemeStore((s) => s.tokens.shakeEnabled)
+  const shakeClass = shake ? 'animate-nb-shake' : ''
+
   return (
-    <div className="flex flex-col gap-2 max-w-sm">
-      <div className="alert-nb alert-success">
-        <strong>Success!</strong> Your changes have been saved.
-      </div>
-      <div className="alert-nb alert-error">
-        <strong>Error!</strong> Something went wrong.
-      </div>
-      <div className="alert-nb alert-info">
-        <strong>Info:</strong> New update available.
-      </div>
-      <div className="alert-nb alert-warning">
-        <strong>Warning:</strong> Low disk space.
-      </div>
-      <style>{`
-        .alert-nb {
-          border: var(--nb-border);
-          border-radius: var(--nb-radius);
-          box-shadow: var(--nb-shadow);
-          padding: 12px 16px;
-          font-family: var(--nb-font-body);
-          font-size: 0.875rem;
-          background: var(--nb-surface);
-          color: var(--nb-text);
-        }
-        .alert-nb strong {
-          font-weight: var(--nb-heading-weight);
-        }
-        .alert-success {
-          background: #88D498;
-        }
-        .alert-error {
-          background: var(--nb-danger);
-          color: #fff;
-          border-color: #000;
-        }
-        .alert-info {
-          background: #74B9FF;
-        }
-        .alert-warning {
-          background: #FFA552;
-        }
-      `}</style>
+    <div className="flex flex-col gap-4 p-4 w-full max-w-2xl">
+      <Alert className={shakeClass}>
+        <IconInfo className="h-4 w-4" />
+        <AlertTitle>Heads up!</AlertTitle>
+        <AlertDescription>
+          You can add components and dependencies to your project using the cli.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="warning" className={shakeClass}>
+        <IconAlertTriangle className="h-4 w-4" />
+        <AlertTitle>Warning</AlertTitle>
+        <AlertDescription>
+          Your subscription is about to expire. Please renew it soon.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="success" className={shakeClass}>
+        <IconCheck className="h-4 w-4" />
+        <AlertTitle>Success</AlertTitle>
+        <AlertDescription>
+          Your profile has been updated successfully.
+        </AlertDescription>
+      </Alert>
+
+      <Alert variant="destructive" className={shakeClass}>
+        <IconX className="h-4 w-4" />
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription>
+          There was an error processing your request. Please try again.
+        </AlertDescription>
+      </Alert>
     </div>
   )
 }

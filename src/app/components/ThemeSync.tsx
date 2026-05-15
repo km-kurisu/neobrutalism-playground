@@ -15,13 +15,49 @@ export default function ThemeSync() {
     root.style.setProperty('--nb-shadow-sm', `${Math.max(1, tokens.shadowOffsetX - 2)}px ${Math.max(1, tokens.shadowOffsetY - 2)}px ${tokens.shadowBlur}px ${tokens.shadowColor}`)
     root.style.setProperty('--nb-shadow-lg', `${tokens.shadowOffsetX + 3}px ${tokens.shadowOffsetY + 3}px ${tokens.shadowBlur}px ${tokens.shadowColor}`)
     root.style.setProperty('--nb-radius', `${tokens.borderRadius}px`)
-    root.style.setProperty('--nb-bg', tokens.bgColor)
-    root.style.setProperty('--nb-surface', tokens.surfaceColor)
-    root.style.setProperty('--nb-text', tokens.textColor)
+    
+    if (tokens.isDarkMode) {
+      root.style.setProperty('--nb-bg', '#121212')
+      root.style.setProperty('--nb-surface', '#1E1E1E')
+      root.style.setProperty('--nb-text', '#FFFFFF')
+      root.style.setProperty('--nb-border-color', '#FFFFFF')
+      root.style.setProperty('--nb-border', `${tokens.borderWidth}px solid #FFFFFF`)
+      root.style.setProperty('--nb-shadow', `${tokens.shadowOffsetX}px ${tokens.shadowOffsetY}px ${tokens.shadowBlur}px rgba(255,255,255,0.5)`)
+    } else {
+      root.style.setProperty('--nb-bg', tokens.bgColor)
+      root.style.setProperty('--nb-surface', tokens.surfaceColor)
+      root.style.setProperty('--nb-text', tokens.textColor)
+      root.style.setProperty('--nb-border-color', tokens.borderColor)
+      root.style.setProperty('--nb-border', `${tokens.borderWidth}px solid ${tokens.borderColor}`)
+      root.style.setProperty('--nb-shadow', `${tokens.shadowOffsetX}px ${tokens.shadowOffsetY}px ${tokens.shadowBlur}px ${tokens.shadowColor}`)
+    }
+    
     root.style.setProperty('--nb-primary', tokens.primaryColor)
     root.style.setProperty('--nb-secondary', tokens.secondaryColor)
     root.style.setProperty('--nb-danger', tokens.dangerColor)
+    root.style.setProperty('--nb-hover-offset', `-${tokens.hoverOffset}px`)
+    root.style.setProperty('--nb-active-offset', `${tokens.activeOffset}px`)
     root.style.setProperty('--nb-heading-weight', `${tokens.headingWeight}`)
+
+    // Dark Mode
+    if (tokens.isDarkMode) {
+      root.classList.add('dark')
+    } else {
+      root.classList.remove('dark')
+    }
+
+    // Grain Overlay
+    let grain = document.getElementById('nb-grain-overlay')
+    if (tokens.grainOverlay) {
+      if (!grain) {
+        grain = document.createElement('div')
+        grain.id = 'nb-grain-overlay'
+        grain.className = 'grain-overlay'
+        document.body.appendChild(grain)
+      }
+    } else if (grain) {
+      grain.remove()
+    }
 
     const fontMap: Record<string, string> = {
       Syne: 'var(--font-syne)',
