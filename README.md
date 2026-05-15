@@ -72,7 +72,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3333](http://localhost:3333) in your browser.
+Open [https://neobrutalism-playground.vercel.app/](https://neobrutalism-playground.vercel.app/) in your browser.
 
 ## Project Structure
 
