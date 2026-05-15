@@ -4,7 +4,17 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Accordion = AccordionPrimitive.Root
+const Accordion = React.forwardRef<
+  HTMLDivElement,
+  AccordionPrimitive.Root.Props
+>(({ className, ...props }, ref) => (
+  <AccordionPrimitive.Root
+    ref={ref}
+    className={className}
+    {...props}
+  />
+))
+Accordion.displayName = "Accordion"
 
 const AccordionItem = React.forwardRef<
   HTMLDivElement,

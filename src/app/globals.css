@@ -18,6 +18,8 @@
   --nb-primary: #FFD23F;
   --nb-secondary: #FF6B6B;
   --nb-danger: #FF4444;
+  --nb-success: #22C55E;
+  --nb-warning: #F59E0B;
   --nb-font-display: 'Syne', sans-serif;
   --nb-font-heading: 'Space Grotesk', sans-serif;
   --nb-font-body: 'Inter', sans-serif;
@@ -79,6 +81,8 @@
   --color-nb-primary: var(--nb-primary);
   --color-nb-secondary: var(--nb-secondary);
   --color-nb-danger: var(--nb-danger);
+  --color-nb-success: var(--nb-success);
+  --color-nb-warning: var(--nb-warning);
   --color-nb-border: var(--nb-border-color);
   --font-display: var(--nb-font-display);
   --font-heading: var(--nb-font-heading);

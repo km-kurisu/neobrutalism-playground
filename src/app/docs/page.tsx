@@ -140,7 +140,7 @@ export default function App() {
         {/* FAQ */}
         <section id="faq" className="space-y-6">
           <h2 className="text-3xl font-heading font-black">FAQs</h2>
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger>Why is it called Neobrutalism?</AccordionTrigger>
               <AccordionContent>

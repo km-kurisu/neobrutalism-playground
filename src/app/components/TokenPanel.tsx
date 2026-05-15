@@ -221,12 +221,8 @@ export default function TokenPanel() {
               <button
                 key={type}
                 onClick={() => {
-                  const [bg, surf, text, bord, shad, prim, sec, dang] = generateHarmoniousPalette(tokens.primaryColor, type, 8)
-                  setTokens({
-                    primaryColor: prim,
-                    secondaryColor: sec,
-                    dangerColor: dang,
-                  })
+                  const palette = generateHarmoniousPalette(tokens.primaryColor, type)
+                  setTokens(palette)
                 }}
                 style={{
                   border: 'var(--nb-border)',
